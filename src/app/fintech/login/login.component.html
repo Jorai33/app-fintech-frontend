@@ -1,0 +1,49 @@
+<div class="cmp-wrapper">
+
+
+
+    <div class="section-header">
+      <div class="header-text">Login</div>
+      <hr>
+    </div>
+    
+    <mat-card class="paper-form-container">
+  
+      <form class="paper-form" [formGroup]="paperForm" (ngSubmit)="onSubmit()" >   
+    
+  
+            <mat-form-field class="paper-full-width">
+              <input matInput 
+              formControlName="username" placeholder="Email" 
+              [errorStateMatcher]="matcher" >
+              <!-- <mat-hint>Your Email ID will be your USERNAME</mat-hint> -->
+    
+              <mat-error *ngIf="paperForm.hasError('email', 'username') && !paperForm.hasError('required', 'username')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="paperForm.hasError('required')">
+                Email is required
+              </mat-error>
+            </mat-form-field>
+  
+            <mat-form-field class="paper-full-width">
+              <input matInput type="password"
+              formControlName="password" placeholder="Password" 
+              [errorStateMatcher]="matcher" >
+              <mat-error *ngIf="paperForm.hasError('required', 'password')">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+  
+            
+            <button type="submit" [disabled]="!paperForm.valid" mat-flat-button color="accent">Submit</button>
+  
+  
+  
+      </form>
+  
+    </mat-card>
+  
+    
+      </div>
+  

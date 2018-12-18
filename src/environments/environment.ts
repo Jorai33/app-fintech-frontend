@@ -2,8 +2,20 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// const URL = 'http://127.0.0.1:8080'; // Dev
+const URL = 'https://app-fintech.herokuapp.com' // Prod ;
+
 export const environment = {
-  production: false
+
+  production: false,
+  // apiUrl: 'http://127.0.0.1:8080'
+  baseUrl: URL + '',
+  loginApiUrl: URL + '/auth/login',
+  signupApiUrl: URL + '/auth/signup',
+  apiUrl: URL + '/api',
+  imagePath: URL + '/file',
+  imageUploadApiUrl: URL + '/api' + '/upload/file'
+  
 };
 
 /*

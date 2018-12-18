@@ -1,0 +1,237 @@
+@import '../../assets/scss/settings';
+
+:host{
+    display: block;
+}
+
+mat-sidenav, 
+mat-sidenav.mat-locked-open, 
+mat-sidenav.mat-closed.mat-locked-open-add-active {
+    min-width: 200px !important;
+    width: 85vw !important;
+    max-width: 400px !important;
+} 
+
+.app-sidenav{
+    @include bg-gradient-two(180deg,#1ebbd1, #127ea4);
+    // background-color: #2c3e50;
+    // z-index:10000;
+
+    .avatar-area{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .avatar-wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            overflow: hidden;
+            background: #fff;
+            img{
+                // margin:5px;
+                width: 100%;
+                height: auto;
+            }
+        }
+        .user-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: #fff;
+        }
+    }
+   
+    .sidenav-link{
+        margin-bottom:10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        .icon {
+            width:32px;
+            height: 32px;
+            display: flex;
+        }
+        .title{
+            display: flex;
+            font-size: 16px !important;
+            letter-spacing: 1px !important;
+            font-weight: 500 !important;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+       
+        height:72px;
+        border-bottom: 1px solid rgba(255,255,255,0.0);
+        border-top: 1px solid rgba(255,255,255,0.0);
+        background: rgba(255,255,255,0.0);
+
+        &:hover{
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            border-top: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+        }
+
+        &:first-child{
+            // border-top: 1px solid lighten($color: #2c3e50, $amount: 5);
+
+        }
+    }
+}
+
+// .toolbar-fullscreen {
+//     display: none;
+// }
+
+.toolbar-filler {
+    flex: 1 1 auto
+}
+
+// ========================================================================= //
+
+.hor-bar{
+    display: flex;
+    width:100%;
+    height:5px;
+    @include bg-gradient(90deg,#F50057, #ffaa00, #fff, #8C8);
+}
+
+.app-header-nav{
+    // position: fixed;
+    // top:0;
+    // left:0;
+    // right:0;
+    // z-index: 10000;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height:120px;
+    height:80px;
+    align-items: center;
+    justify-content: center;
+    // background: #1CA1D7;
+    // border-bottom: 5px solid #4AA391;
+    &.shadow {
+        // background: #00bcd4 !important;
+        background: #ffffff;
+        // box-shadow: 0 0 10px rgba(0,0,0,0.4) !important;
+
+    }
+
+    @media(max-width: $ipad){
+        height:80px;
+    }
+
+
+    
+
+    .nav-button-wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-right: 30px;
+
+        .sidenav-toggle-button
+        {
+            margin: 10px;
+        }
+        .header-btn {
+            background: transparent none repeat scroll 0 0;
+            color: #414042;
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-bottom: 4px solid transparent;
+            letter-spacing: 1.4px;
+            margin-top: 6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-right: 10px;
+        
+            &:hover{
+                border-bottom: 4px solid #414042;
+                color: #414042;
+            }
+            
+            @media(max-width: $ipad){
+                display: none;
+            }
+            
+        }
+        
+        .sidenav-button{
+            display: none;
+            @media(max-width: $ipad){
+                display: block;
+            }
+        }
+    }
+    .nav-button-wrapper-left{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: 30px;
+        align-items: center;
+
+    }
+
+    
+    .logo-wrapper{
+        margin-top: 10px;
+        width: 80px;
+        // height: 100%;
+        margin-left: 2%;
+        // margin-top: 20px;
+        display: block;
+        img{
+            width: 100%;
+            height: auto;;
+        }
+}
+
+}
+// ========================================================================= //
+.app-footer{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height: 120px;
+    background: $footer-color;
+    justify-content: center;
+    align-items: center;
+    color: #869099;
+    padding:10px;
+
+    .link {
+        a{
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            color: #869099;
+        }
+    }
+    .copyright {
+        display: flex;
+        flex-direction: row;
+        width:90%;
+       
+        background: $footer-color;
+        justify-content: center;
+        // align-items: center;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 400;
+        color: #4AA391;
+        padding: 5px;
+        margin: 0px;
+    }
+}
+// ========================================================================= //

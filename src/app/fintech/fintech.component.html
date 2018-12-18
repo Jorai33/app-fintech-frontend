@@ -1,0 +1,85 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="push" class="app-sidenav" opened="false"  >
+        <mat-toolbar color="primary" style="background: transparent;">
+          <!--future svg to go here-->
+          <span class="toolbar-filler"></span>
+          <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
+            <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+          </button>
+        </mat-toolbar>
+        <div class="avatar-area" >
+          <div class="avatar-wrapper">
+            <img src="./assets/img/user-512x512.png" >
+          </div>
+          <h4 class="user-name"> FirsName LastName </h4>
+        </div>
+        <mat-nav-list>
+          
+          <mat-list-item class="sidenav-link" [routerLink]="['/admin/seller']" (click)="sidenav.toggle()">
+            <mat-icon matListIcon class="icon"  svgIcon="svg_dashboard"></mat-icon> 
+            <h4 matLine class="title" mat-line>Side Menu Button</h4>
+          </mat-list-item>
+
+          <mat-list-item class="sidenav-link" [routerLink]="['/admin/seller']" (click)="sidenav.toggle()">
+            <mat-icon matListIcon class="icon"  svgIcon="svg_offer"></mat-icon> 
+            <h4 matLine class="title" mat-line>Side Menu Button</h4>
+          </mat-list-item>
+
+          <mat-list-item class="sidenav-link" [routerLink]="['/admin/seller']" (click)="sidenav.toggle()">
+            <mat-icon matListIcon class="icon"  svgIcon="svg_order"></mat-icon> 
+            <h4 matLine class="title" mat-line>Side Menu Button</h4>
+          </mat-list-item>
+          <mat-list-item class="sidenav-link" [routerLink]="['/admin/seller']" (click)="sidenav.toggle()">
+            <mat-icon matListIcon class="icon"  svgIcon="svg_product"></mat-icon> 
+            <h4 matLine class="title" mat-line>Side Menu Button</h4>
+          </mat-list-item>
+          <mat-list-item class="sidenav-link" [routerLink]="['/admin/seller']" (click)="sidenav.toggle()">
+            <mat-icon matListIcon class="icon"  svgIcon="svg_report"></mat-icon> 
+            <h4 matLine class="title" mat-line>Side Menu Button</h4>
+          </mat-list-item>
+          <mat-list-item class="sidenav-link" [routerLink]="['/admin/seller']" (click)="sidenav.toggle()">
+            <mat-icon matListIcon class="icon"  svgIcon="svg_settings"></mat-icon> 
+            <h4 matLine class="title" mat-line>Side Menu Button</h4>
+          </mat-list-item>
+          <mat-list-item class="sidenav-link"   (click)="logout() ;sidenav.toggle()">
+            <mat-icon matListIcon class="icon"  svgIcon="svg_availability"></mat-icon> 
+            <h4 matLine class="title" mat-line>Side Menu Button</h4>
+          </mat-list-item>
+          
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <div class="wrapper">
+
+      <mat-toolbar class="app-header-nav shadow">
+
+          <div class="nav-button-wrapper">
+              <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button " >
+                  <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+              </button>
+            </div>
+            
+    <div class="logo-wrapper">
+      <h4>FINTECK </h4>
+        <!-- <img src="./assets/img/logo.png" > -->
+      </div>
+    
+      
+  
+  </mat-toolbar>
+  <div class="hor-bar"></div>
+  <!-- <div style="background:#ff6600; width:100%; height:100vh;"></div> -->
+  <router-outlet></router-outlet>
+
+  <div class="app-footer" >
+      <div class="link">
+        <a class="" href="#" > Privacy Policy</a> |  <a class="" href="#" > Term of Service</a>
+      </div>
+      <div class="copyright">Copyright © 2018 FinTech. All Rights Reserved.</div>
+    </div>
+  
+
+</div>
+
+
+</mat-sidenav-container>

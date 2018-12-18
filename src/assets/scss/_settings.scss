@@ -1,0 +1,28 @@
+$aquamarine-tradewind: #61BCAA;
+$aquamarine-ocean-green: #4AA391;
+$orange-terracota: #E3774E;
+$gray-nurse: #E9EEEA;
+$gray-tasman: #DAE1DD;
+$gray-silder-chalice: #ADADAD;
+
+$blue-cornflower: #1CA1D7;
+$blue-eastern: #1692C5;
+
+$nice-grey: #3b4144;
+
+$text-color: #3b4144;
+$footer-color: #3b4144;
+
+// Responsive Design
+$desktop: 1023px;
+$ipad: 768px;
+$mobile: 400px;
+$line-with: 2px;
+
+@mixin bg-gradient($angle: 180deg, $color1: #0bd, $color2: #fff, $color3: #fff, $color4: #fff) {
+    background: linear-gradient($angle, $color1, $color2, $color3, $color4) fixed;
+  }
+
+@mixin bg-gradient-two($angle: 180deg, $color1: #0bd, $color2: #fff) {
+    background: linear-gradient($angle, $color1, $color2) fixed;
+  }

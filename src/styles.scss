@@ -1,1 +1,188 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app5-primary: mat-palette($mat-indigo);
+$app5-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$app5-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app5-theme: mat-light-theme($app5-primary, $app5-accent, $app5-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app5-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// =================================================== //
+.input-container {
+    text-align: center; 
+    width: 100%;
+}
+
+.google-place-input {
+    width: 50%;
+    min-width: 280px;
+    height: 2rem; 
+    font-size: 1.5rem; 
+    padding: 0.5rem;
+}
+
+$aquamarine-tradewind: #61BCAA;
+$aquamarine-ocean-green: #4AA391;
+$orange-terracota: #E3774E;
+$gray-nurse: #E9EEEA;
+$gray-tasman: #DAE1DD;
+$gray-silder-chalice: #ADADAD;
+
+$blue-cornflower: #1CA1D7;
+$blue-eastern: #1692C5;
+
+// Responsive Design
+$desktop: 1023px;
+$ipad: 767px;
+$mobile: 400px;
+$line-with: 2px;
+
+*{
+    box-sizing: border-box;
+}
+
+
+.section-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#fff;
+    .header-text {
+        margin-left: 6px;
+        margin-right: 6px;
+        letter-spacing: 1.6px;
+        font-size: 24px;
+        font-weight: 400;
+        color: darken($color: $gray-nurse, $amount: 60);
+        text-transform: uppercase;
+        @media(max-width: $ipad) {
+            font-size: 18px;
+        }
+    }
+    hr {
+        width: 100%;
+        margin-top: 4px;
+        margin-bottom: 20px;
+        max-width: 60px;
+        border-width: 3px;
+        // border-color: #f05f40;
+        border-color: #F50057;
+
+        border: 0;
+        border-top: 3px solid #F50057;
+    }
+}
+
+.cmp-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    // max-width: 1200px;
+    min-height: calc(100vh - 200px);
+    background: $gray-nurse;
+    // background: $blue-cornflower;
+    margin:0px;
+    padding: 10px;
+    padding-top:40px;
+
+    
+    @media(max-width: $ipad) {
+        padding-top:30px;
+        min-height: calc(100vh - 80px);
+    }
+
+    .section-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width:100%;
+        max-width: 1200px;
+
+
+        .activity-wrapper{
+            // min-width: 320px;
+            width: 100%;
+            display: flex;
+            margin-left: 30px;
+
+            @media(max-width: $ipad){
+                margin-left: 0px;
+
+            }
+        }
+    }
+}
+
+// .wrapper {
+//     width: 100%;
+//     max-width: 1200px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+
+.simple-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 150px;
+    max-width: 500px;
+    background: #fff;
+    // border-radius: 2px;
+    padding: 30px;
+}
+
+.paper-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 150px;
+    max-width: 500px;
+    background: #fff;
+    // border-radius: 2px;
+    padding: 30px !important;
+
+    .paper-form {
+        
+        width: 100%;
+      }
+      
+      .paper-full-width {
+        width: 100%;
+      }
+      .paper-half-width {
+        width: 50%;
+      }
+  }
+
+
+  
+  
+  
+

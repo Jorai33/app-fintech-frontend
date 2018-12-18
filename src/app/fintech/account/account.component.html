@@ -1,0 +1,115 @@
+<div class="cmp-wrapper">
+
+
+
+ 
+
+    <div class="section-header">
+      <div class="header-text">Account Balance</div>
+      <hr>
+    </div>
+
+    <div class="section-wrapper">
+        <mat-card class="paper-form-container">
+
+            <mat-card-header>
+                <mat-icon mat-card-avatar class="icon"  svgIcon="svg_search"></mat-icon> 
+                <mat-card-title>Bank Relationships</mat-card-title>
+                <mat-card-subtitle>Search and choose a Bank to see the details</mat-card-subtitle>
+              </mat-card-header>
+            <mat-card-content>
+              
+  
+            <form   class="paper-form" [formGroup]="paperForm" (ngSubmit)="onSubmit()" >
+              
+                <mat-form-field class="paper-full-width">
+                    <input type="text" placeholder="Bank" aria-label="Bank" matInput formControlName="bankCtrl" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onBankSelect($event)">
+                      <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank.name">
+                        <mat-icon >account_balance</mat-icon>
+                        <span style="padding-right:10px;"  [matBadge]="bank.numAccounts" matBadgePosition="after" matBadgeColor="accent" matBadgeSize = "small">{{bank.name}}  </span>
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+          
+                  <div class="account-list-wrapper">
+                    <div class="account-wrapper" *ngFor="let account of currentAccounts">
+                      <div class="name">A/C - {{account.accountNo}}</div>
+                      <div class="balance"> 
+                        <div class="amount" *ngIf="showBadge(account)" matBadge="!"  matBadgePosition="above before" matBadgeColor="warn" matBadgeSize = "medium">{{account.balance | currency:account.currency :display:symbol}}</div>  
+                        <div class="amount" *ngIf="!showBadge(account)" >{{account.balance | currency:account.currency :display:symbol}}</div>  
+      
+                        <div class="currency">{{account.currency}}</div>  
+                      </div>
+                    </div>
+                  </div>
+        
+                  
+        
+                  <button type="submit" [disabled]="!paperForm.valid"   mat-flat-button color="accent">Initiate Pay</button>
+        
+        
+            </form>
+          </mat-card-content>
+          
+
+           
+        
+          </mat-card>
+
+        <mat-card class="simple-card activity-wrapper payment-activity-wrapper " *ngIf="showActivity" >
+            <mat-card-header>
+                <mat-icon mat-card-avatar class="icon"  svgIcon="svg_alarm"></mat-icon> 
+                <mat-card-title>Last Visited</mat-card-title>
+                <!-- <mat-card-subtitle></mat-card-subtitle> -->
+                <button mat-icon-button class="mat-icon-button close-button" (click)="showActivity = !showActivity">
+                  <mat-icon class="material-icons">close</mat-icon>
+                </button>
+              </mat-card-header>
+
+              <mat-card-content>
+                <div class="table-wrapper payment-table-wrapper"  >
+                <table mat-table [dataSource]="activityList "  >
+                  <!--  Column -->
+                  <ng-container matColumnDef="bank">
+                      <th mat-header-cell *matHeaderCellDef > Bank </th>
+                      <td  mat-cell *matCellDef="let element" ><span class="cell-item-wrapper"><mat-icon   class="icon"  svgIcon="svg_dollar"></mat-icon> <span class="bank">{{element.bank}}</span> </span> </td>
+                    </ng-container>
+                    <!--  Column -->
+                  <ng-container matColumnDef="time">
+                      <th style="text-align: right;" mat-header-cell *matHeaderCellDef > Time </th>
+                      <td style="text-align: right;" mat-cell *matCellDef="let element" > {{element.time | timeAgo}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onActivityClick(row)"></tr>
+
+                </table>
+              </div>
+              </mat-card-content>
+              <mat-card-footer>
+                  <div class="paging-wrapper">
+                      <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+                      <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" hidePageSize="true" ></mat-paginator>
+                  </div>
+              </mat-card-footer>
+          
+        </mat-card>
+        
+
+    </div>
+    
+
+    
+      </div>
+
+      <mat-menu #appMenu="matMenu">
+          <ng-template matMenuContent let-item="item">
+            <button mat-menu-item (click)="showItem(item)" >View Details</button>
+          </ng-template>
+        </mat-menu>
+
+        <button mat-fab class="history-fab"  (click)="showPanel()" >
+          <mat-icon aria-label="Example icon-button with a heart icon">history</mat-icon>
+        </button>
+  
